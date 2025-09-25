@@ -155,12 +155,6 @@ func main() {
 			i -= 1
 		}
 	}
-
-	// //print in order
-	// fmt.Println("start")
-	// for _, c := range file {
-	// 	printInOrder(c, "")
-	// }
 }
 
 type printConfig struct {
@@ -280,21 +274,6 @@ func printChar(char string, printIn printConfig) {
 	}
 }
 
-func printInOrder(headerObj header, pref string) {
-	nPref := headerObj.header
-	if pref != "" {
-		nPref = pref + " - " + headerObj.header
-	}
-
-	fmt.Scanln()
-	headerObj.header = nPref
-	printFormated(headerObj)
-
-	for _, o := range headerObj.subHeaders {
-		printInOrder(o, nPref)
-	}
-}
-
 func flatten(headerList []header, pref string) []header {
 	returnList := []header{}
 	for _, i := range headerList {
@@ -310,8 +289,3 @@ func flatten(headerList []header, pref string) []header {
 	}
 	return returnList
 }
-
-/*
-NEW IDEA:
- - make flatten function where titles are changed -> line in printInOrder
-*/
